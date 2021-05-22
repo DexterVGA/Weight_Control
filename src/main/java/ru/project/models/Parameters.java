@@ -6,30 +6,30 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class Parameters {
-    @Min(value = 0, message = "Height should be greater than 0")
+    @Min(value = 70, message = "Height should be greater than 70")
     @Max(value = 299, message = "Height should be lower than 299")
     private int height;
 
-    @Min(value = 0, message = "Weight should be greater than 0")
+    @Min(value = 20, message = "Weight should be greater than 20")
     @Max(value = 499, message = "Weight should be lower than 499")
     private int weight;
 
-    @Min(value = 0, message = "Age should be greater than 0")
+    @Min(value = 1, message = "Age should be greater than 1")
     @Max(value = 99, message = "Age should be lower than 99")
     private int age;
 
     @Min(value = 0, message = "Activity should be greater than 0")
-    private int activity;
+    private double activity;
 
     @NotEmpty(message = "Sex should mot be empty")
     @Size(min = 1, max = 1, message = "Sex should be 1 characters :(")
     private String sex;
 
     @Min(value = 0, message = "Target should be greater than 0")
-    @Max(value = 2, message = "Target should be lower than 99")
+    @Max(value = 2, message = "Target should be lower than 2")
     private int target;
 
-    public Parameters(int height, int weight, int age, int activity, String sex, int target) {
+    public Parameters(int height, int weight, int age, double activity, String sex, int target) {
         this.height = height;
         this.weight = weight;
         this.age = age;
@@ -64,11 +64,11 @@ public class Parameters {
         this.age = age;
     }
 
-    public int getActivity() {
+    public double getActivity() {
         return activity;
     }
 
-    public void setActivity(int activity) {
+    public void setActivity(double activity) {
         this.activity = activity;
     }
 

@@ -7,8 +7,15 @@
 <body>
 
 <form th:method="POST" th:action="@{/input}" th:object="${parameters}">
-    <label for="sex">Enter sex: </label>
-    <input type="text" th:field="*{sex}" id="sex"/>
+<!--    <label for="sex1">Enter sex: </label>-->
+<!--    <input type="text" th:field="*{sex}" id="sex"/>-->
+    <label for="sex1">Enter sex: female </label>
+    <input type="radio" th:field="*{sex}" id="sex1"
+           name="Female" value="f">
+    <label for="sex2"> male </label>
+    <input type="radio" th:field="*{sex}" id="sex2"
+           name="Male" value="m">
+
     <div style="color:red" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Sex error</div>
     <br/>
     <label for="height">Enter height: </label>
@@ -23,12 +30,27 @@
     <input type="text" th:field="*{age}" id="age"/>
     <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br/>
-    <label for="activity">Enter activity: </label>
-    <input type="text" th:field="*{activity}" id="activity"/>
+<!--    <label for="activity">Enter activity: </label>-->
+<!--    <input type="text" th:field="*{activity}" id="activity"/>-->
+    <label id="activity">Enter activity:
+        <select name="activity" size="1">
+            <option value="1.20" selected>Very low</option>
+            <option value="1.38">Low</option>
+            <option value="1.55">Middle</option>
+            <option value="1.73">High</option>
+        </select>
+    </label>
     <div style="color:red" th:if="${#fields.hasErrors('activity')}" th:errors="*{activity}">Activity error</div>
     <br/>
-    <label for="target">Enter target: </label>
-    <input type="text" th:field="*{target}" id="target"/>
+<!--    <label for="target">Enter target: </label>-->
+<!--    <input type="text" th:field="*{target}" id="target"/>-->
+    <label id="target">Enter activity:
+        <select name="target" size="1">
+            <option value="0" selected>Slimming</option>
+            <option value="1">Maintaining</option>
+            <option value="2">Mass gathering</option>
+        </select>
+    </label>
     <div style="color:red" th:if="${#fields.hasErrors('target')}" th:errors="*{target}">Target error</div>
     <br/>
     <input type="submit" value="Create!"/>

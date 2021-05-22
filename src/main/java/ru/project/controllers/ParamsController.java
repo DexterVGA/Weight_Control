@@ -1,7 +1,6 @@
 package ru.project.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,12 +35,18 @@ public class ParamsController {
 
         parametersDAO.save(parameters);
 
-        return "redirect:/input";
+        return "redirect:/input/information";
+    }
+
+    @GetMapping("/information")
+    public String showInfo(Model model) {
+        model.addAttribute("parameters", parametersDAO.show());
+        model.addAttribute("results", parametersDAO.programCalculation());
+        return "/input/information";
     }
 
     @GetMapping()
-    public String showInfo(Model model) {
-        model.addAttribute("parameters", parametersDAO.show());
-        return "input/information";
+    public String showMain() {
+        return "/mainpage";
     }
 }
