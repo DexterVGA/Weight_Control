@@ -1,7 +1,9 @@
 package ru.project.dao;
 
 import org.springframework.stereotype.Component;
-import ru.project.models.Parameters;
+import ru.project.domain.Parameters;
+
+import javax.validation.Valid;
 
 @Component
 public class ParametersDAO {
