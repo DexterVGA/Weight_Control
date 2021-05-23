@@ -1,20 +1,26 @@
 package ru.project.controller;
 
-import ru.project.domain.Message;
-import ru.project.repos.MessageRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.project.dao.ParametersDAO;
+import ru.project.domain.Parameters;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
 public class MainController {
-    private final MessageRepo messageRepo;
+    private final ParametersDAO parametersDAO;
 
-    public MainController(MessageRepo messageRepo) {
-        this.messageRepo = messageRepo;
+    @Autowired
+    public MainController(ParametersDAO parametersDAO) {
+        this.parametersDAO = parametersDAO;
     }
 
     @GetMapping("/")
@@ -23,35 +29,27 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Map<String, Object> model) {
-        Iterable<Message> messages = messageRepo.findAll();
-        model.put("messages", messages);
-        return "main";
+    public String main(@ModelAttribute("parameters") Parameters parameters) {
+        return "params";
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
-        Message message = new Message(text, tag);
-        messageRepo.save(message);
-
-        Iterable<Message> messages = messageRepo.findAll();
-        model.put("messages", messages);
-
-        return "main";
-    }
-
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<Message> messages;
-
-        if(filter != null && !filter.isEmpty()) {
-            messages = messageRepo.findByTag(filter);
-        } else {
-            messages = messageRepo.findAll();
+    public String add(@ModelAttribute("parameters") @Valid Parameters parameters,
+                      BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            System.out.println("Errors");
+            return "params";
         }
 
-        model.put("messages", messages);
+        parametersDAO.save(parameters);
 
-        return "main";
+        return "redirect:/information";
+    }
+
+    @GetMapping("/information")
+    public String showInfo(Model model) {
+        model.addAttribute("parameters", parametersDAO.show());
+        model.addAttribute("results", parametersDAO.programCalculation());
+        return "information";
     }
 }

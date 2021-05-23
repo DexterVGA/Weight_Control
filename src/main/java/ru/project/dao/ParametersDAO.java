@@ -59,11 +59,11 @@ public class ParametersDAO {
             result = "Программа питания для набора мышечной массы.\n";
         }
 
-        result += "Ваша норма калорий = " + calories + "\n";
+        result += "Ваша норма калорий = " + (int)calories + "\n";
 
         double indexBodyMass = parameters.getWeight() / Math.pow(((double) parameters.getHeight() / 100), 2);
 
-        result += "Ваш индекс массы тела = " + indexBodyMass + ". ";
+        result += "Ваш индекс массы тела = " + String.format("%.1f", indexBodyMass) + ". ";
         if(indexBodyMass < 16.5) {
             result += "У вас выраженный дефицит массы.\n";
         } else if(indexBodyMass >= 16.5 && indexBodyMass <= 18.49) {
