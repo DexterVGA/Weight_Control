@@ -30,7 +30,7 @@ public class RegistrationController {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if(userFromDb != null) {
-            model.put("message", "User exists!");
+            model.put("message", "Пользователь уже существует!");
             return "registration";
         }
 
