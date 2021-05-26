@@ -3,8 +3,6 @@ package ru.project.dao;
 import org.springframework.stereotype.Component;
 import ru.project.domain.Parameters;
 
-import javax.validation.Valid;
-
 @Component
 public class ParametersDAO {
     private Parameters parameters;
@@ -22,7 +20,7 @@ public class ParametersDAO {
         double metabolismLevel;
         double calories;
 
-        if(parameters.getSex().equals("m")) {
+        if(parameters.getGender().equals("m")) {
             metabolismLevel = 66 + (13.7 * parameters.getWeight()) + (5 * parameters.getHeight()) - (6.8 * parameters.getAge());
             calories = metabolismLevel * parameters.getActivity();
             calories -= 500;

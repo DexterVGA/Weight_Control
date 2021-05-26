@@ -3,64 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <title>Parameters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style>
+        body {
+            /*background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);*/
+            background-image: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+
+            font-family: 'Vibur', cursive;
+            /*   the main font */
+            font-family: 'Abel', sans-serif;
+            opacity: .95;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.05em;
+            /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+        }
+
+        .myForm {
+            width: 450px;
+            min-height: 500px;
+            height: auto;
+            border-radius: 5px;
+            margin: 2% auto;
+            box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+            padding: 2%;
+            background-image: linear-gradient(-225deg, rgba(66, 183, 245, 0.8) 50%, rgba(66, 245, 189, 0.4) 50%);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .error {
+            color:red;
+            margin: 0 auto;
+        }
+
+        .inputText {
+            margin: 0 auto;
+            border-radius: 10em;
+            font-size: 12px;
+            padding: 5px;
+            display: block;
+            width: 300px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+        .inputText:focus {
+            outline: none;
+        }
+
+        label {
+            display: flex;
+            cursor: pointer;
+            font-weight: 50;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto 0.375em;
+            /* Accessible outline */
+            /* Remove comment to use */
+            /*
+                &:focus-within {
+                        outline: .125em solid $primary-color;
+                }
+            */
+        }
+        label input {
+            position: absolute;
+            left: -9999px;
+        }
+        label input:checked + span {
+            background-color: #d6d6e5;
+        }
+        label input:checked + span:before {
+            box-shadow: inset 0 0 0 0.4375em #00005c;
+        }
+        label span {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0.375em 0.75em 0.375em 0.375em;
+            border-radius: 99em;
+            transition: 0.25s ease;
+        }
+        label span:hover {
+            background-color: #d6d6e5;
+        }
+        label span:before {
+            display: flex;
+            flex-shrink: 0;
+            content: "";
+            background-color: #fff;
+            width: 0.9em;
+            height: 0.9em;
+            border-radius: 50%;
+            margin-right: 0.375em;
+            transition: 0.25s ease;
+            box-shadow: inset 0 0 0 0.125em #00005c;
+        }
+
+        /*.container {*/
+        /*    position: absolute;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    right: 0;*/
+        /*    bottom: 0;*/
+        /*    width: 100%;*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*    padding: 10px;*/
+        /*}*/
+
+        label {
+            color: #000000;
+            font-weight: bold;
+            display: block;
+            width: auto;
+            float: left;
+        }
+
+        .square {
+            width: .7em;
+            height: .7em;
+            margin: .5em;
+            display: inline-block;
+        }
+
+        .small {
+            font-size: 0.85em;
+        }
+
+        /* Custom dropdown */
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 auto; /* demo only */
+        }
+
+        .custom-dropdown select {
+            background-color: #1a83bc;
+            color: #fff;
+            font-size: inherit;
+            padding: .5em 2.5em .5em .5em;
+            border: 0;
+            margin: 0;
+            border-radius: 3px;
+            text-indent: 0.01px;
+            text-overflow: '';
+            -webkit-appearance: button; /* hide default arrow in chrome OSX */
+        }
+
+        /*.custom-dropdown::before,*/
+        /*.custom-dropdown::after {*/
+        /*    content: "";*/
+        /*    position: absolute;*/
+        /*    pointer-events: none;*/
+        /*}*/
+
+        /*.custom-dropdown::after { !*  Custom dropdown arrow *!*/
+        /*    content: "\25BC";*/
+        /*    height: 1em;*/
+        /*    font-size: .625em;*/
+        /*    line-height: 1;*/
+        /*    right: 1.2em;*/
+        /*    top: 50%;*/
+        /*    margin-top: -.5em;*/
+        /*}*/
+
+        /*.custom-dropdown::before { !*  Custom dropdown arrow cover *!*/
+        /*    width: 2em;*/
+        /*    right: 0;*/
+        /*    top: 0;*/
+        /*    bottom: 0;*/
+        /*    border-radius: 0 3px 3px 0;*/
+        /*}*/
+
+        .custom-dropdown select[disabled] {
+            color: rgba(0,0,0,.3);
+        }
+
+        .custom-dropdown select[disabled]::after {
+            color: rgba(0,0,0,.1);
+        }
+
+        /*.custom-dropdown::before {*/
+        /*    background-color: rgba(0,0,0,.15);*/
+        /*}*/
+
+        /*.custom-dropdown::after {*/
+        /*    color: rgba(0,0,0,.4);*/
+        /*}*/
+
+        .button {
+            text-decoration: none;
+            border-width: 0;
+            color: white;
+            padding: 10px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            /*padding-right: 50px;*/
+            margin: 10px;
+            transition: all 0.1s linear;
+            transform: translateZ(0);
+        }
+        .button.blue {
+            background: linear-gradient(to bottom, #a2d3e9, #7abedf);
+            box-shadow: -1px 0px 1px #6fadcb, 0px 1px 1px #54809d, -2px 1px 1px #6fadcb, -1px 2px 1px #54809d, -3px 2px 1px #6fadcb, -2px 3px 1px #54809d, -4px 3px 1px #6fadcb, -3px 4px 1px #54809d, -5px 4px 1px #6fadcb, -4px 5px 1px #54809d, -6px 5px 1px #6fadcb, -6px 7px 0 rgba(0, 0, 0, 0.05), -5px 8px 0 rgba(0, 0, 0, 0.05), -3px 9px 0 rgba(0, 0, 0, 0.04), -2px 10px 0 rgba(0, 0, 0, 0.04), -1px 11px 0 rgba(0, 0, 0, 0.03), 0px 12px 0 rgba(0, 0, 0, 0.03), 1px 13px 0 rgba(0, 0, 0, 0.02), 2px 14px 0 rgba(0, 0, 0, 0.02), 3px 15px 0 rgba(0, 0, 0, 0.01), 4px 16px 0 rgba(0, 0, 0, 0.01), 5px 17px 0 rgba(0, 0, 0, 0.01), 6px 18px 0 rgba(0, 0, 0, 0.01), inset 0 4px 5px -2px rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(0, 0, 0, 0.3);
+        }
+        .button:active {
+            box-shadow: none;
+            transform: translate3d(-6px, 6px, 0);
+        }
+        .button .arrow {
+            filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
+        }
+        .button::after {
+            filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
+        }
+        .button::after, .button::before {
+            position: absolute;
+            content: " ";
+            right: 15px;
+            top: 14px;
+            width: 6px;
+            height: 18px;
+            background: white;
+            transform: rotate(-45deg);
+            display: block;
+            z-index: 2;
+        }
+        .button::before {
+            height: 14px;
+            top: 26px;
+            right: 16px;
+            z-index: 3;
+            transform: rotate(-137deg);
+            filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));
+        }
+
+        .buttonExit {
+            position: relative;
+            display: inline-block;
+            width: 10em;
+            height: 2.5em;
+            margin: 0 auto;
+            line-height: 2.5em;
+            vertical-align: middle;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0 -1px 1px #777;
+            color: #fff;
+            outline: none;
+            border: 2px solid #F64C2B;
+            border-radius: 5px;
+            box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
+            background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
+        }
+        .buttonExit:active {
+            top: .1em;
+            left: .1em;
+            box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+        }
+    </style>
 </head>
 <body>
 
-<div>
-    <form th:action="@{/logout}" th:method="POST">
-        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-        <input type="submit" value="Sign out" />
-    </form>
-</div>
+<!--<div>-->
+<!--    <form th:action="@{/logout}" th:method="POST">-->
+<!--        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
+<!--        <input type="submit" value="Sign out" />-->
+<!--    </form>-->
+<!--</div>-->
 
-<form th:method="POST" th:action="@{/main}" th:object="${parameters}">
-<!--    <label for="sex1">Enter sex: </label>-->
-<!--    <input type="text" th:field="*{sex}" id="sex"/>-->
-    <label for="sex1">Enter sex: female </label>
-    <input type="radio" th:field="*{sex}" id="sex1"
-           name="Female" value="f">
-    <label for="sex2"> male </label>
-    <input type="radio" th:field="*{sex}" id="sex2"
-           name="Male" value="m">
 
-    <div style="color:red" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Sex error</div>
+<form class="myForm" th:method="POST" th:action="@{/main}" th:object="${parameters}">
+    <label>Выберите пол: </label>
+<!--    <label>female</label>-->
+<!--    <input type="radio" th:field="*{gender}" id="gender1"-->
+<!--           name="Female" value="f">-->
+<!--    <label for="gender2"> male </label>-->
+<!--    <input type="radio" th:field="*{gender}" id="gender2"-->
+<!--           name="Male" value="m">-->
+    <div class="container" style="margin: 0 auto">
+        <label style="padding-right: 10px">
+            <input type="radio" th:field="*{gender}" id="gender1"
+                   name="Female" value="f" checked/>
+            <span>Женщина</span>
+        </label>
+        <label>
+            <input type="radio" th:field="*{gender}" id="gender2"
+                   name="Male" value="m"/>
+            <span>Мужчина</span>
+        </label>
+    </div>
+
+    <div class="error" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender error</div>
     <br/>
-    <label for="height">Enter height: </label>
-    <input type="text" th:field="*{height}" id="height"/>
-    <div style="color:red" th:if="${#fields.hasErrors('height')}" th:errors="*{height}">Height error</div>
+    <label for="height">Введите ваш рост в см: </label>
+    <input class="inputText" type="text" th:field="*{height}" id="height" name="digit" required pattern="\d+"/>
+    <div class="error" th:if="${#fields.hasErrors('height')}" th:errors="*{height}">Height error</div>
     <br/>
-    <label for="weight">Enter weight: </label>
-    <input type="text" th:field="*{weight}" id="weight"/>
-    <div style="color:red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}">Weight error</div>
+    <label for="weight">Введите ваш вес в кг: </label>
+    <input class="inputText" type="text" th:field="*{weight}" id="weight" name="digit" required pattern="\d+"/>
+    <div class="error" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}">Weight error</div>
     <br/>
-    <label for="age">Enter age: </label>
-    <input type="text" th:field="*{age}" id="age"/>
-    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+    <label for="age">Введите ваш возраст: </label>
+    <input class="inputText" type="text" th:field="*{age}" id="age" name="digit" required pattern="\d+"/>
+    <div class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br/>
 <!--    <label for="activity">Enter activity: </label>-->
 <!--    <input type="text" th:field="*{activity}" id="activity"/>-->
-    <label id="activity">Enter activity:
+    <label>Выберите вашу активность:</label>
+    <span id="activity" class="custom-dropdown small">
         <select name="activity" size="1">
-            <option value="1.20" selected>Very low</option>
-            <option value="1.38">Low</option>
-            <option value="1.55">Middle</option>
-            <option value="1.73">High</option>
+            <option value="1.20" selected>Очень низкая</option>
+            <option value="1.38">Низкая</option>
+            <option value="1.55">Средняя</option>
+            <option value="1.73">Высокая</option>
         </select>
-    </label>
-    <div style="color:red" th:if="${#fields.hasErrors('activity')}" th:errors="*{activity}">Activity error</div>
+    </span>
+    <div class="error" th:if="${#fields.hasErrors('activity')}" th:errors="*{activity}">Activity error</div>
     <br/>
 <!--    <label for="target">Enter target: </label>-->
 <!--    <input type="text" th:field="*{target}" id="target"/>-->
-    <label id="target">Enter activity:
+    <label >Выберите цель:</label>
+    <span id="target" class="custom-dropdown small">
         <select name="target" size="1">
-            <option value="0" selected>Slimming</option>
-            <option value="1">Maintaining</option>
-            <option value="2">Mass gathering</option>
+            <option value="0" selected>Похудение</option>
+            <option value="1">Поддержание</option>
+            <option value="2">Массонабор</option>
         </select>
-    </label>
-    <div style="color:red" th:if="${#fields.hasErrors('target')}" th:errors="*{target}">Target error</div>
+    </span>
+    <div class="error" th:if="${#fields.hasErrors('target')}" th:errors="*{target}">Target error</div>
     <br/>
-    <input type="submit" value="Create!"/>
+    <input class="button blue" type="submit" value="Расчитать"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+    <br/>
+    <a class="buttonExit" href="/login?logout">Выйти</a>
     <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
 </form>
 

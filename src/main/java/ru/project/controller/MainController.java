@@ -37,7 +37,6 @@ public class MainController {
     public String add(@ModelAttribute("parameters") @Valid Parameters parameters,
                       BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
-            System.out.println("Errors");
             return "params";
         }
 

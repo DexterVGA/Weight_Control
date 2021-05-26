@@ -1,40 +1,39 @@
 package ru.project.domain;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Parameters {
-    @Min(value = 70, message = "Height should be greater than 70")
-    @Max(value = 299, message = "Height should be lower than 299")
+    @Min(value = 70, message = "Рост должен быть больше 70 см")
+    @Max(value = 299, message = "Рост должен быть меньше 299 см")
+//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\+d")
+    @NotNull(message = "Это поле должно быть заполнено")
     private int height;
 
-    @Min(value = 20, message = "Weight should be greater than 20")
-    @Max(value = 499, message = "Weight should be lower than 499")
+    @Min(value = 20, message = "Вес должен быть больше 20 кг")
+    @Max(value = 499, message = "Вес должен быть меньше 499 кг")
+//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\*w")
     private int weight;
 
-    @Min(value = 1, message = "Age should be greater than 1")
-    @Max(value = 99, message = "Age should be lower than 99")
+    @Min(value = 1, message = "Возраст должен быть больше 1")
+    @Max(value = 99, message = "Возраст должен быть меньше 99")
+//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\*w")
     private int age;
 
-    @Min(value = 0, message = "Activity should be greater than 0")
+    @Min(value = 0, message = "Выберите активность из списка")
     private double activity;
 
-    @NotEmpty(message = "Sex should mot be empty")
-    @Size(min = 1, max = 1, message = "Sex should be 1 characters :(")
-    private String sex;
+    @NotEmpty(message = "Вы должны выбрать одно из полей")
+    private String gender;
 
-    @Min(value = 0, message = "Target should be greater than 0")
-    @Max(value = 2, message = "Target should be lower than 2")
+    @Min(value = 0, message = "Выберите цель из списка")
     private int target;
 
-    public Parameters(int height, int weight, int age, double activity, String sex, int target) {
+    public Parameters(int height, int weight, int age, double activity, String gender, int target) {
         this.height = height;
         this.weight = weight;
         this.age = age;
         this.activity = activity;
-        this.sex = sex;
+        this.gender = gender;
         this.target = target;
     }
 
@@ -72,12 +71,12 @@ public class Parameters {
         this.activity = activity;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getTarget() {
