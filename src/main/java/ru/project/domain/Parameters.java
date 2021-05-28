@@ -67,6 +67,21 @@ public class Parameters {
         return activity;
     }
 
+    public String changeActivityOutput() {
+        switch (String.valueOf(activity)) {
+            case "1.2":
+                return "Очень низкая";
+            case "1.38":
+                return "Низкая";
+            case "1.55":
+                return "Средняя";
+            case "1.73":
+                return "Высокая";
+            default:
+                return "Чел ты...";
+        }
+    }
+
     public void setActivity(double activity) {
         this.activity = activity;
     }
@@ -75,12 +90,33 @@ public class Parameters {
         return gender;
     }
 
+    public String changeGenderOutput() {
+        if(gender.equals("m")) {
+            return "Мужчина";
+        } else {
+            return "Женщина";
+        }
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
     }
 
     public int getTarget() {
         return target;
+    }
+
+    public String changeTargetOutput() {
+        switch (target) {
+            case 0:
+                return "Похудение";
+            case 1:
+                return "Поддержание";
+            case 2:
+                return "Массонабор";
+            default:
+                return "Ты кто?";
+        }
     }
 
     public void setTarget(int target) {

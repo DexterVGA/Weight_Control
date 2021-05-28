@@ -12,6 +12,7 @@ import ru.project.dao.ParametersDAO;
 import ru.project.domain.Parameters;
 
 import javax.validation.Valid;
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 @Controller
@@ -46,9 +47,10 @@ public class MainController {
     }
 
     @GetMapping("/information")
-    public String showInfo(Model model) {
+    public String showInfo(Model model) throws FileNotFoundException {
         model.addAttribute("parameters", parametersDAO.show());
         model.addAttribute("results", parametersDAO.programCalculation());
+        model.addAttribute("food", parametersDAO.showFood());
         return "information";
     }
 }

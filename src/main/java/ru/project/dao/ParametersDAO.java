@@ -1,7 +1,21 @@
 package ru.project.dao;
 
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
+import org.apache.poi.xwpf.usermodel.XWPFFooter;
+import org.apache.poi.xwpf.usermodel.XWPFHeader;
 import org.springframework.stereotype.Component;
 import ru.project.domain.Parameters;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Scanner;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 @Component
 public class ParametersDAO {
@@ -79,5 +93,22 @@ public class ParametersDAO {
         }
 
         return result;
+    }
+
+    public String showFood() throws FileNotFoundException {
+        File file = new File("food.txt");
+
+        Scanner in = new Scanner(file);
+
+        StringBuilder text = new StringBuilder();
+        while(in.hasNextLine()) {
+            assert false;
+            text.append(in.nextLine()).append("\n");
+        }
+
+        in.close();
+
+        assert false;
+        return text.toString();
     }
 }

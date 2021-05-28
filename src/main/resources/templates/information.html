@@ -3,19 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <title>Information</title>
+
+    <style>
+        body {
+            /*background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);*/
+            background-color: rgb(179, 255, 255);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+        }
+        form {
+            width: 900px;
+            min-height: 500px;
+            height: auto;
+            border-radius: 5px;
+            margin: 2% auto;
+            box-shadow: 0 9px 50px hsla(0, 0%, 0%, 0.31);
+            padding: 2%;
+            background-image: linear-gradient(-225deg, rgba(155, 255, 240, 0.8) 0%, rgba(241, 236, 236, 1) 100%);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        .pLine {
+            line-height: 0.5rem;
+        }
+        a.button7 {
+            font-weight: 700;
+            width: 160px;
+            color: white;
+            margin: 0 auto;
+            text-decoration: none;
+            padding: .8em 1em calc(.8em + 3px);
+            border-radius: 3px;
+            background: rgb(64,199,129);
+            box-shadow: 0 -3px rgb(53,167,110) inset;
+            transition: 0.2s;
+        }
+        a.button7:hover { background: rgb(53, 167, 110); }
+        a.button7:active {
+            background: rgb(33,147,90);
+            box-shadow: 0 3px rgb(33,147,90) inset;
+        }
+        .tabs {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .tabs>input[type="radio"] {
+            display: none;
+        }
+
+        .tabs>input[type="radio"]:checked+label {
+            background-color: #bdbdbd;
+        }
+
+        .tabs>div {
+            /* скрыть контент по умолчанию */
+            display: none;
+            border: 0 solid #eee;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+
+        /* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
+        #tab-btn-1:checked~#content-1,
+        #tab-btn-2:checked~#content-2,
+        #tab-btn-3:checked~#content-3 {
+            display: block;
+        }
+
+        .tabs>label {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: #eee;
+            border: 1px solid transparent;
+            padding: 2px 8px;
+            font-size: 16px;
+            line-height: 1.5;
+            border-radius: 4px;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+            margin-left: 6px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .tabs>label:first-of-type {
+            margin-left: 0;
+        }
+    </style>
 </head>
+
 <body>
 
-<p th:text="${'Sex: ' + parameters.getGender()}">VALUE</p>
-<p th:text="${'Age: ' + parameters.getAge()}">VALUE</p>
-<p th:text="${'Height: ' + parameters.getHeight()}">VALUE</p>
-<p th:text="${'Weight: ' + parameters.getWeight()}">VALUE</p>
-<p th:text="${'Activity: ' + parameters.getActivity()}">VALUE</p>
-<p th:text="${'Target: ' + parameters.getTarget()}">VALUE</p>
-<br/>
-<a href="/main">Back to main page</a>
-<br/>
-<p th:utext="${results}">VALUE</p>
+<form>
+    <div class="tabs">
+        <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+        <label for="tab-btn-1">Параметры</label>
+        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+        <label for="tab-btn-2">План питания</label>
+        <input type="radio" name="tab-btn" id="tab-btn-3" value="">
+        <label for="tab-btn-3">План тренировок</label>
+
+        <div id="content-1">
+            <div class="pLine">
+                <header>
+                    <h3>Ваши параметры:</h3>
+                </header>
+                <p th:text="${'Пол: ' + parameters.changeGenderOutput()}">VALUE</p>
+                <p th:text="${'Возраст: ' + parameters.getAge()}">VALUE</p>
+                <p th:text="${'Рост: ' + parameters.getHeight()}">VALUE</p>
+                <p th:text="${'Вес: ' + parameters.getWeight()}">VALUE</p>
+                <p th:text="${'Активность: ' + parameters.changeActivityOutput()}">VALUE</p>
+                <p th:text="${'Цель: ' + parameters.changeTargetOutput()}">VALUE</p>
+            </div>
+            <br/>
+            <p th:utext="${results}">VALUE</p>
+        </div>
+        <div id="content-2">
+            <div class="pLine">
+                <header>
+                    <h3>Примерный план питания:</h3>
+                </header>
+            </div>
+            <p th:text="${food}">VALUE</p>
+        </div>
+    </div>
+    <br/>
+    <a class="button7" href="/main">Вернуться на главную страницу</a>
+</form>
 
 </body>
 </html>
