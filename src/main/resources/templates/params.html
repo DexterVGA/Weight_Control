@@ -2,23 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Parameters</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Параметры</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
         body {
-            /*background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);*/
             background-image: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
             background-attachment: fixed;
             background-repeat: no-repeat;
 
             font-family: 'Vibur', cursive;
-            /*   the main font */
             font-family: 'Abel', sans-serif;
             opacity: .95;
             font-family: 'Playfair Display', serif;
             letter-spacing: 0.05em;
-            /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
         }
 
         .myForm {
@@ -36,7 +34,7 @@
         }
 
         .error {
-            color:red;
+            color: red;
             margin: 0 auto;
         }
 
@@ -50,6 +48,7 @@
             border: none;
             border-bottom: 1px solid #ccc;
         }
+
         .inputText:focus {
             outline: none;
         }
@@ -62,16 +61,20 @@
             overflow: hidden;
             margin: 0 auto 0.375em;
         }
+
         label input {
             position: absolute;
             left: -9999px;
         }
+
         label input:checked + span {
             background-color: #d6d6e5;
         }
+
         label input:checked + span:before {
             box-shadow: inset 0 0 0 0.4375em #00005c;
         }
+
         label span {
             margin: 0 auto;
             display: flex;
@@ -80,9 +83,11 @@
             border-radius: 99em;
             transition: 0.25s ease;
         }
+
         label span:hover {
             background-color: #d6d6e5;
         }
+
         label span:before {
             display: flex;
             flex-shrink: 0;
@@ -115,12 +120,11 @@
             font-size: 0.85em;
         }
 
-        /* Custom dropdown */
         .custom-dropdown {
             position: relative;
             display: inline-block;
             vertical-align: middle;
-            margin: 0 auto; /* demo only */
+            margin: 0 auto;
         }
 
         .custom-dropdown select {
@@ -133,15 +137,15 @@
             border-radius: 3px;
             text-indent: 0.01px;
             text-overflow: '';
-            -webkit-appearance: button; /* hide default arrow in chrome OSX */
+            -webkit-appearance: button;
         }
 
         .custom-dropdown select[disabled] {
-            color: rgba(0,0,0,.3);
+            color: rgba(0, 0, 0, .3);
         }
 
         .custom-dropdown select[disabled]::after {
-            color: rgba(0,0,0,.1);
+            color: rgba(0, 0, 0, .1);
         }
 
         .button {
@@ -153,25 +157,29 @@
             display: inline-block;
             text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
             font-weight: bold;
-            /*padding-right: 50px;*/
             margin: 10px;
             transition: all 0.1s linear;
             transform: translateZ(0);
         }
+
         .button.blue {
             background: linear-gradient(to bottom, #a2d3e9, #7abedf);
             box-shadow: -1px 0px 1px #6fadcb, 0px 1px 1px #54809d, -2px 1px 1px #6fadcb, -1px 2px 1px #54809d, -3px 2px 1px #6fadcb, -2px 3px 1px #54809d, -4px 3px 1px #6fadcb, -3px 4px 1px #54809d, -5px 4px 1px #6fadcb, -4px 5px 1px #54809d, -6px 5px 1px #6fadcb, -6px 7px 0 rgba(0, 0, 0, 0.05), -5px 8px 0 rgba(0, 0, 0, 0.05), -3px 9px 0 rgba(0, 0, 0, 0.04), -2px 10px 0 rgba(0, 0, 0, 0.04), -1px 11px 0 rgba(0, 0, 0, 0.03), 0px 12px 0 rgba(0, 0, 0, 0.03), 1px 13px 0 rgba(0, 0, 0, 0.02), 2px 14px 0 rgba(0, 0, 0, 0.02), 3px 15px 0 rgba(0, 0, 0, 0.01), 4px 16px 0 rgba(0, 0, 0, 0.01), 5px 17px 0 rgba(0, 0, 0, 0.01), 6px 18px 0 rgba(0, 0, 0, 0.01), inset 0 4px 5px -2px rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(0, 0, 0, 0.3);
         }
+
         .button:active {
             box-shadow: none;
             transform: translate3d(-6px, 6px, 0);
         }
+
         .button .arrow {
             filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
         }
+
         .button::after {
             filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
         }
+
         .button::after, .button::before {
             position: absolute;
             content: " ";
@@ -184,6 +192,7 @@
             display: block;
             z-index: 2;
         }
+
         .button::before {
             height: 14px;
             top: 26px;
@@ -208,34 +217,21 @@
             outline: none;
             border: 2px solid #F64C2B;
             border-radius: 5px;
-            box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
+            box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em #800;
             background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
         }
+
         .buttonExit:active {
             top: .1em;
             left: .1em;
-            box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+            box-shadow: 0 0 0 60px rgba(0, 0, 0, .05) inset;
         }
     </style>
 </head>
 <body>
 
-<!--<div>-->
-<!--    <form th:action="@{/logout}" th:method="POST">-->
-<!--        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
-<!--        <input type="submit" value="Sign out" />-->
-<!--    </form>-->
-<!--</div>-->
-
-
 <form class="myForm" th:method="POST" th:action="@{/main}" th:object="${parameters}">
     <label>Выберите пол: </label>
-<!--    <label>female</label>-->
-<!--    <input type="radio" th:field="*{gender}" id="gender1"-->
-<!--           name="Female" value="f">-->
-<!--    <label for="gender2"> male </label>-->
-<!--    <input type="radio" th:field="*{gender}" id="gender2"-->
-<!--           name="Male" value="m">-->
     <div class="container" style="margin: 0 auto">
         <label style="padding-right: 10px">
             <input type="radio" th:field="*{gender}" id="gender1"
@@ -263,8 +259,6 @@
     <input class="inputText" type="text" th:field="*{age}" id="age" name="digit" required pattern="\d+"/>
     <div class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br/>
-<!--    <label for="activity">Enter activity: </label>-->
-<!--    <input type="text" th:field="*{activity}" id="activity"/>-->
     <label>Выберите вашу активность:</label>
     <span id="activity" class="custom-dropdown small">
         <select name="activity" size="1">
@@ -276,9 +270,7 @@
     </span>
     <div class="error" th:if="${#fields.hasErrors('activity')}" th:errors="*{activity}">Activity error</div>
     <br/>
-<!--    <label for="target">Enter target: </label>-->
-<!--    <input type="text" th:field="*{target}" id="target"/>-->
-    <label >Выберите цель:</label>
+    <label>Выберите цель:</label>
     <span id="target" class="custom-dropdown small">
         <select name="target" size="1">
             <option value="0" selected>Похудение</option>
@@ -289,10 +281,10 @@
     <div class="error" th:if="${#fields.hasErrors('target')}" th:errors="*{target}">Target error</div>
     <br/>
     <input class="button blue" type="submit" value="Расчитать"/>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
     <br/>
     <a class="buttonExit" href="/login?logout">Выйти</a>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 </form>
 
 </body>

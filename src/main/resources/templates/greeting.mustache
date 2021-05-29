@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Fitlux</title>
-<!--    <link rel="stylesheet" type="text/css" href="css/main_background.css" >-->
 
     <style>
-        /* Variables */
-        /* Fonts */
         @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
         @import url(https://fonts.googleapis.com/css?family=Amatic+SC);
-        /* Mixins */
-        /* Base Styles */
+
         * {
             box-sizing: border-box;
         }
@@ -37,6 +33,7 @@
             padding: 28px;
             text-align: center;
         }
+
         header:before {
             background: linear-gradient(rgba(0, 235, 235, 0.3), rgba(0, 235, 235, 0.3)), url("https://i.pinimg.com/originals/da/02/80/da0280f626691d58e720fcaf3e0cf083.jpg");
             background-color: #CCCCCC;
@@ -55,6 +52,7 @@
             top: 0;
             z-index: -1;
         }
+
         @keyframes bgFadeIn {
             0% {
                 background-color: white;
@@ -63,9 +61,11 @@
                 background-color: rgba(255, 255, 255, 0);
             }
         }
+
         header .container {
             margin: 12rem auto;
         }
+
         header h1 {
             border-bottom: 2px solid #FFFFFF;
             border-top: 2px solid #FFFFFF;
@@ -74,6 +74,7 @@
             font-size: 7.75rem;
             margin: 0;
         }
+
         header h3 {
             color: #FFF0A5;
             font-family: "Abril Fatface", cursive;
@@ -86,13 +87,16 @@
         section {
             padding: 2rem;
         }
+
         section p {
             font-size: 2.5rem;
             line-height: 3.5rem;
         }
+
         section p.lead-in {
             font-size: 3rem;
         }
+
         section p.lead-in:first-letter {
             font-size: 7.25rem;
             display: block;
@@ -109,27 +113,28 @@
             font-weight: bold;
             font-size: 150%;
             text-decoration: none;
-            text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+            text-shadow: rgba(255, 255, 255, .5) 1px 1px, rgba(100, 100, 100, .3) 3px 7px 3px;
             user-select: none;
             padding: 1em 2em;
             outline: none;
             border-radius: 3px / 100%;
-            background-image:
-                    linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
-                    linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
-                    linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
-                    linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
-                    linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
-                    linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%),
+            linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, .3)),
+            linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+            linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+            linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5)),
+            linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5));
             background-repeat: no-repeat;
             background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
             background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
-            box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+            box-shadow: rgba(0, 0, 0, .5) 3px 10px 10px -10px;
         }
+
         a.button9:hover {
             transition: .5s linear;
             background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
         }
+
         a.button9:active {
             top: 1px;
         }
@@ -137,39 +142,37 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <header>
     <div class="container">
         <h1>Хочешь изменить свою жизнь?</h1>
         <h3>Начни прямо сейчас!</h3>
-    </div><!-- /.container -->
+    </div>
 </header>
 <section>
     <div class="container">
-        <p class="lead-in">Добро пожаловать на сайт Fitlux! Здесь вы сможете получить персональную программу питания и узнать много полезной информации по питанию</p>
+        <p class="lead-in">Добро пожаловать на сайт Fitlux! Здесь вы сможете получить персональную программу питания и
+            узнать много полезной информации по питанию</p>
 
-        <hr />
+        <hr/>
 
-        <p>Правильное питание и здоровая еда подразумевает регулярность, нужное количество и соотношение поступающих в организм веществ: воды, белков, жиров, витаминов, углеводов, минеральных веществ. Все это – залог красоты, долголетия, здоровья. Соответственно недостаток или избыток какого-то из элементов провоцирует различные заболевания, ускоряет процесс старения, отрицательно влияет на организм в целом.</p>
+        <p>Правильное питание и здоровая еда подразумевает регулярность, нужное количество и соотношение поступающих в
+            организм веществ: воды, белков, жиров, витаминов, углеводов, минеральных веществ. Все это – залог красоты,
+            долголетия, здоровья. Соответственно недостаток или избыток какого-то из элементов провоцирует различные
+            заболевания, ускоряет процесс старения, отрицательно влияет на организм в целом.</p>
 
         <p>Польза сбалансированного питания:</p>
         <p>1) Избавит от многих болезней или предупредит их;</p>
         <p>2) Стабилизирует вес без лишних усилий;</p>
         <p>3) Восстанавливает физическую и интеллектуальную энергию.</p>
-        <p>Итог – хорошее здоровье, которое содействует отличному самочувствию, прекрасному внешнему виду и достижению поставленных в жизни целей!</p>
+        <p>Итог – хорошее здоровье, которое содействует отличному самочувствию, прекрасному внешнему виду и достижению
+            поставленных в жизни целей!</p>
         <div style="text-align: center;"><br>
-            <div style="background: #00EBEB4C; padding: .5em 5px 1em;"><a class="button9" href="/main">Начать работу!</a></div>
+            <div style="background: #00EBEB4C; padding: .5em 5px 1em;"><a class="button9" href="/main">Начать
+                работу!</a></div>
             <br>
         </div>
-    </div><!-- /.container -->
+    </div>
 </section>
-<!-- partial -->
-
-<!--<div class="container">-->
-<!--    <p>Привет, пользователь!</p>-->
-<!--    <a href="/main">Начать работу</a>-->
-<!--</div>-->
-
 
 </body>
 </html>

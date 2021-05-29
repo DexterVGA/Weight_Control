@@ -2,18 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Information</title>
+    <title>Информация</title>
 
     <style>
         body {
-            /*background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);*/
             background-color: rgb(179, 255, 255);
             background-attachment: fixed;
             background-repeat: no-repeat;
             font-family: Helvetica, Arial, sans-serif;
             font-size: 1rem;
             letter-spacing: 0.05em;
-            /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
             margin: 0 auto;
         }
 
@@ -71,14 +69,12 @@
         }
 
         .tabs > div {
-            /* скрыть контент по умолчанию */
             display: none;
             border: 0 solid #eee;
             padding: 10px 15px;
             border-radius: 4px;
         }
 
-        /* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
         #tab-btn-1:checked ~ #content-1,
         #tab-btn-2:checked ~ #content-2,
         #tab-btn-3:checked ~ #content-3 {
@@ -109,7 +105,6 @@
         textarea {
             width: 850px;
             height: 1000px;
-            /*overflow: hidden;*/
             padding: 5px;
             border: 1px solid #000000;
             resize: none;
@@ -489,7 +484,7 @@
         </div>
     </div>
     <br/>
-    <a class="button7" href="/main">Вернуться на главную страницу</a>
+    <a class="button7" href="/">Вернуться на главную страницу</a>
 </form>
 
 </body>

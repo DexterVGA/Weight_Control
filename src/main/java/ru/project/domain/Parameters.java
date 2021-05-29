@@ -5,18 +5,15 @@ import javax.validation.constraints.*;
 public class Parameters {
     @Min(value = 70, message = "Рост должен быть больше 70 см")
     @Max(value = 299, message = "Рост должен быть меньше 299 см")
-//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\+d")
     @NotNull(message = "Это поле должно быть заполнено")
     private int height;
 
     @Min(value = 20, message = "Вес должен быть больше 20 кг")
     @Max(value = 499, message = "Вес должен быть меньше 499 кг")
-//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\*w")
     private int weight;
 
     @Min(value = 1, message = "Возраст должен быть больше 1")
     @Max(value = 99, message = "Возраст должен быть меньше 99")
-//    @Pattern(message = "Это поле должно быть заполнено", regexp = "\\*w")
     private int age;
 
     @Min(value = 0, message = "Выберите активность из списка")
